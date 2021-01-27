@@ -1,0 +1,49 @@
+{
+    "name": "dn_fullscreen",
+    "title": "${bundleName}",
+    "version": "1.0.0",
+    "main": "",
+    "productName": "devnet-mapapps-fullscreen",
+    "components": [
+        {
+            "name": "FullscreenController",
+            "provides": "dn_fullscreen.FullscreenController",
+            "properties": {
+                "onlyMap": false
+            },
+            "references": [
+                {
+                    "name": "_appCtx",
+                    "providing": "ct.framework.api.ApplicationContext"
+                }
+            ]
+        },
+        {
+            "name": "FullscreenToggleTool",
+            "impl": "ct/tools/Tool",
+            "provides": [
+                "ct.tools.Tool"
+            ],
+            "propertiesConstructor": true,
+            "properties": {
+                "id": "fullscreenToggleTool",
+                "title": "${tool.title}",
+                "tooltip": "${tool.tooltipEnter}",
+                "iconClass": "esri-icon-zoom-out-fixed",
+                "toolRole": "toolset",
+                "togglable": true,
+                "rules": {
+                    "noGroup": true
+                },
+                "activateHandler": "requestFullscreen",
+                "deactivateHandler": "exitFullscreen"
+            },
+            "references": [
+                {
+                    "name": "handlerScope",
+                    "providing": "dn_fullscreen.FullscreenController"
+                }
+            ]
+        }
+    ]
+}
