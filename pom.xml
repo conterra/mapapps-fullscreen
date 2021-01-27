@@ -20,8 +20,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
-    <artifactId>mapapps-remote-project-blueprint</artifactId>
-    <version>4.10.1-SNAPSHOT</version>
+    <artifactId>mapapps-fullscreen</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <repositories>
         <repository>
@@ -523,10 +523,10 @@
         </plugins>
     </build>
     <scm>
-        <connection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git</connection>
-        <developerConnection>scm:git:https://github.com/conterra/mapapps-remote-project-blueprint.git
+        <connection>scm:git:https://github.com/conterra/mapapps-fullscreen.git</connection>
+        <developerConnection>scm:git:https://github.com/conterra/mapapps-fullscreen.git
         </developerConnection>
-        <url>https://github.com/conterra/mapapps-remote-project-blueprint</url>
+        <url>https://github.com/conterra/mapapps-fullscreen</url>
         <tag>HEAD</tag>
     </scm>
     <distributionManagement>
@@ -633,7 +633,7 @@
                                     <goal>gulp</goal>
                                 </goals>
                                 <configuration>
-                                    <arguments>run-js-tests --tests "http://localhost:${jetty.server.port}/resources/jsregistry/root/intern/latest/runner.html?boot=/js/tests/test-init.js&amp;test=sample_helloworld/tests/all"</arguments>
+                                    <arguments>run-js-tests --tests "http://localhost:${jetty.server.port}/resources/jsregistry/root/intern/latest/runner.html?boot=/js/tests/test-init.js&amp;test=dn_fullscreen/tests/all"</arguments>
                                 </configuration>
                             </execution>
                         </executions>
