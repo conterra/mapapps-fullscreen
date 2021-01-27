@@ -2,8 +2,6 @@
 This bundle adds a button that enables fullscreen-mode. Fullscreen is available for the map or the entire app (see config).
 
 ## Usage
-**Requirement: map.apps 4.10.1**
-
 1. First you need to add the bundle fullscreen_button to your app.
 2. Then you can configure it as described in the following section.
 
