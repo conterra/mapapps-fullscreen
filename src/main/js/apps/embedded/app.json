@@ -1,0 +1,171 @@
+{
+    "properties": {
+        "title": "${apptitle}"
+    },
+    "load": {
+        "bundleLocations": [
+            "localbundles",
+            "bundles"
+        ],
+        "allowedBundles": [
+            "console",
+            "system",
+            "banner",
+            "splashscreen",
+            "templatelayout",
+            "template-seasons",
+            "theme-everlasting",
+            "toolset",
+            "map-init",
+            "agssearch",
+            "bundletools",
+            "viewmodeswitcher",
+            "mapdraw-api",
+            "fullscreen_button",
+            "measurement",
+            "dn_fullscreen",
+            "custominfo",
+            "integration-map"
+        ],
+        "require": [
+            "${app}.app"
+        ],
+        "i18n": [
+            "bundle"
+        ]
+    },
+    "bundles": {
+        "dn_fullscreen": {
+            "FullscreenController": {
+                "onlyMap": false
+            }
+        },
+        "agssearch": {
+            "AGSStore": [
+                {
+                    "title": "St\u00F6rungen",
+                    "description": "Durchsucht die Beschreibung aller St\u00F6rungsmeldugen.",
+                    "omniSearchLabelAttr": "${details} (${melder})",
+                    "omniSearchSearchAttr": "details",
+                    "idProperty": "objectid",
+                    "url": "https://services.conterra.de/arcgis/rest/services/training/stoerungen/MapServer/0",
+                    "useIn": ["omnisearch", "selection"],
+                    "filterOptions": {
+                        "suggestContains": true
+                    },
+                    "omniSearchTypingDelay": 500,
+                    "omniSearchPageSize": 20,
+                    "omniSearchDefaultLabel": "Suchbegriff eingeben...",
+                    "fetchIdProperty": true,
+                    "id": "stoerungStore",
+                    "pid": "agssearch-AGSStore-0",
+                    "type": "Dynamisch"
+                }
+            ]
+        },
+        "banner": {
+            "BannerWidget": {
+                "label": "Developer Network",
+                "imagePosition": "above",
+                "image": "resource('${app}:/images/logo_conterra.png')",
+                "imageWidth": 200,
+                "link": "https://developernetwork.conterra.de"
+            }
+        },
+        "map-init": {
+            "Config": {
+                "basemaps": [{
+                    "id": "streets",
+                    "basemap": "streets",
+                    "title": "Strassen",
+                    "selected": true
+                },{
+                    "id": "satellite",
+                    "basemap": "satellite",
+                    "title": "Satellit"
+                },{
+                    "id": "hybrid",
+                    "basemap": "hybrid",
+                    "title": "Hybrid"
+                }],
+                "map": {
+                    "layers": [
+                        {
+                            "title": "Gemeinden",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/FeatureServer/0",
+                            "definitionExpression": "kgs8 LIKE '05515%'"
+                        },
+                        {
+                            "title": "Kreise",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/FeatureServer/1",
+                            "definitionExpression": "land_nr = 5"
+                        },
+                        {
+                            "title": "Bundeslaender",
+                            "type": "AGS_FEATURE",
+                            "url": "https://services.conterra.de/arcgis/rest/services/common/grenzen/FeatureServer/2"
+                        }
+                    ]
+                },
+                "view": {
+                    "viewmode": "2D",
+                    "extent": {
+                        "xmin": 600000,
+                        "ymin": 5800000,
+                        "xmax": 1700000,
+                        "ymax": 7600000,
+                        "spatialReference": 3857
+                    }
+                }
+            }
+        },
+        "toolset": {
+            "ToolsetManager": {
+                "toolsets": [
+                    {
+                        "id": "defaultToolSet",
+                        "tools": ["*"],
+                        "registerWidget": {
+                            "widgetRole": "map_topleft"
+                        },
+                        "container": "ignore",
+                        "windowType": "container",
+                        "cssClass": "muted"
+                    }
+                ]
+            }
+        },
+        "measurement-2d": {
+            "DistanceMeasurement2DToggleTool": {
+                "tooltipPositions": ["before", "above", "below", "after"]
+            },
+            "Config": {
+                "distanceDefaultUnit": "metric",
+                "areaDefaultUnit": "metric"
+            }
+        },
+        "custominfo": {
+            "CustomInfoToggleTool": [{
+                "id": "sampleDescriptionTool",
+                "title": "Sample Description",
+                "widgetSettings": {
+                    "content": "Ensure using custom <a href=\"/js/apps/embedded/index.html\">index.html</a>",
+                    "window": {
+                        "marginBox": {
+                            "w": 250,
+                            "h": 250,
+                            "t": 100,
+                            "l": 150
+                        }
+                    }
+                },
+                "rules" : {
+                    "groups" : "custominfo",
+                    "activateOnStartup" : true
+                }
+            }]
+        }
+    }
+}

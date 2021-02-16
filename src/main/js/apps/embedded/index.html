@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration Test</title>
+    <style>
+        #embedded {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <script type="text/javascript" src="@@client.config.initjs@@"></script>
+    <script type="text/javascript">
+        var proxyrules = [];
+        var proxyUrl = "@@applicationURL.noscheme@@/proxy";
+        "@@proxy.use.rules@@".split(/\s*,\s*/).forEach(function (rule) {
+            var rule = rule.split(/\s*\|\s*/);
+            var origin = rule[0];
+            if (!origin || origin.startsWith("@")){
+                return;
+            }
+            var url = rule[1] || proxyUrl;
+            proxyrules.push({
+                origin: origin,
+                proxyUrl: url
+            });
+        });
+        $apprt.changeConfig({
+            isDebug: true,
+            has: {
+                "ct-debug": true,
+                "ct-log-deprecations": true
+            },
+            ct: {
+                amdPackages: ["apprt@^@@apprt.version@@"],
+                preFetchBundles: false
+            },
+            apprt: {
+                request: {
+                    trustedServers: ["@@mapapps.remote.base@@"],
+                    proxyUrl: proxyUrl,
+                    proxyRules: proxyrules
+                }
+            },
+            packages: [
+                // add local apps directory as amd package
+                { name: "localapps", location: "@@applicationURL.noscheme@@/js/apps" },
+                // add local bundles directory as amd package
+                { name: "localbundles", location: "@@jsregistry.root.url@@" }
+            ]
+        });
+        $apprt.startApp({
+            app: "embedded",
+            domId: "embedded",
+            configLocation: "localapps"
+        });
+    </script>
+</head>
+<body>
+<h1>Hello World</h1>
+<div id="embedded"></div><div>Lorem ipsum</div>
+</body>
+</html>

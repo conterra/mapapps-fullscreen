@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 module.exports = {
-    root: {
-        apptitle: "Fullscreen"
-    },
+    root: ({
+        apptitle: "Fullscreen-Embedded"
+    }),
     "de": true
 };

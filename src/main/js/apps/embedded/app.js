@@ -13,9 +13,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module.exports = {
-    root: {
-        apptitle: "Fullscreen"
-    },
-    "de": true
-};
+import i18n from "dojo/i18n!./nls/bundle";
