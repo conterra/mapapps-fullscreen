@@ -9,7 +9,7 @@
             "name": "FullscreenController",
             "provides": "dn_fullscreen.FullscreenController",
             "properties": {
-                "onlyMap": false
+                "-onlyMap": false
             },
             "references": [
                 {
