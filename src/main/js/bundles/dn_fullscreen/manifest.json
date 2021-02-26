@@ -2,7 +2,6 @@
     "name": "dn_fullscreen",
     "title": "${bundleName}",
     "version": "1.0.2-SNAPSHOT",
-    "main": "",
     "productName": "devnet-mapapps-fullscreen",
     "components": [
         {
