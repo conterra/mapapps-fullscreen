@@ -13,6 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+function hideOmnisearch(root) {
+    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
+    omnisearchDivs.forEach(element => {
+        element.style.display = "None";
+    })
+}
+
+function showOmnisearch(root) {
+    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
+    omnisearchDivs.forEach(element => {
+        element.style.display = "";
+    })
+}
+
 export default class {
     requestFullscreen(event) {
         const tool = (event || {}).tool || {};
@@ -23,10 +38,19 @@ export default class {
         if(mapDiv) {
             if (mapDiv.requestFullscreen) {
                 mapDiv.requestFullscreen();
+                if (properties.hideOmnisearch) {
+                    hideOmnisearch(root);
+                }
             } else if (mapDiv.webkitRequestFullscreen) { /* Safari */
                 mapDiv.webkitRequestFullscreen();
+                if (properties.hideOmnisearch) {
+                    hideOmnisearch(root);
+                }
             } else if (mapDiv.msRequestFullscreen) { /* IE11 */
                 mapDiv.msRequestFullscreen();
+                if (properties.hideOmnisearch) {
+                    hideOmnisearch(root);
+                }
             } else {
                 console.warn("Fullscreen mode cannot be requested.");
                 tool.set("iconClass", "esri-icon-zoom-out-fixed");
@@ -39,14 +63,25 @@ export default class {
 
     exitFullscreen(event) {
         const tool = (event || {}).tool || {};
+        const root = this._appCtx.getApplicationRootNode();
+        const properties = this._properties;
         tool.set("iconClass", "esri-icon-zoom-out-fixed");
         if (document.fullscreenElement) {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
+                if (properties.hideOmnisearch) {
+                    showOmnisearch(root)
+                }
             } else if (document.webkitExitFullscreen) { /* Safari */
                 document.webkitExitFullscreen();
+                if (properties.hideOmnisearch) {
+                    showOmnisearch(root)
+                }
             } else if (document.msExitFullscreen) { /* IE11 */
                 document.msExitFullscreen();
+                if (properties.hideOmnisearch) {
+                    showOmnisearch(root)
+                }
             }
         }
     }

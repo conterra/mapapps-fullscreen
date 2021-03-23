@@ -22,6 +22,7 @@ To make the functions of this bundle available to the user, the following tool c
 }
 ```
 
-| Property    | Type    | Possible Values               | Default       | Description                                           |
-|-------------|---------|-------------------------------|---------------|-------------------------------------------------------|
-| onlyMap     | Boolean | ```true``` &#124; ```false``` | ```false```   | enlarge only the map (True) or the entire app (False) |
+| Property       | Type    | Possible Values               | Default       | Description                                           |
+|----------------|---------|-------------------------------|---------------|-------------------------------------------------------|
+| onlyMap        | Boolean | ```true``` &#124; ```false``` | ```false```   | enlarge only the map (True) or the entire app (False) |
+| hideOmnisearch | Boolean | ```true``` &#124; ```false``` | ```false```   | hide omnisearch in fullscreen mode                    |

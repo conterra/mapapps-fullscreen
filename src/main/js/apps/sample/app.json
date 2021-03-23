@@ -21,7 +21,10 @@
             "mapnavigation",
             "toc",
             "basemaptoggler",
-            "dn_fullscreen"
+            "dn_fullscreen",
+            "omnisearch",
+            "omnisearch-portalitem",
+            "portal-search"
         ],
         "require": [
             "${app}.app"
@@ -33,7 +36,8 @@
     "bundles": {
         "dn_fullscreen": {
             "FullscreenController": {
-                "onlyMap": true
+                "onlyMap": true,
+                "hideOmnisearch": true
             }
         },
         "banner": {

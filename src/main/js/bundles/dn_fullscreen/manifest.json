@@ -1,6 +1,7 @@
 {
     "name": "dn_fullscreen",
     "title": "${bundleName}",
+    "description": "${bundleDescription}",
     "version": "1.0.2-SNAPSHOT",
     "productName": "devnet-mapapps-fullscreen",
     "components": [
@@ -8,7 +9,8 @@
             "name": "FullscreenController",
             "provides": "dn_fullscreen.FullscreenController",
             "properties": {
-                "-onlyMap": false
+                "-onlyMap": false,
+                "-hideOmnisearch": false
             },
             "references": [
                 {
