@@ -15,7 +15,7 @@
  */
 module.exports = {
     root: {
-        apptitle: "Fullscreen"
+        apptitle: "Fullscreen Sample"
     },
     "de": true
 };

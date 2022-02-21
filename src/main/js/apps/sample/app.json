@@ -54,7 +54,7 @@
                 "basemaps": [
                     {
                         "id": "streets",
-                        "basemap": "streets",
+                        "basemap": "streets-vector",
                         "title": "Strassen",
                         "selected": true
                     },
