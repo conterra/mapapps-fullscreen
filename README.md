@@ -16,7 +16,7 @@ https://demos.conterra.de/mapapps/resources/apps/downloads_fullscreen/index.html
 Before you can run the project you have to define the mapapps.remote.base property in the pom.xml-file:
 `<mapapps.remote.base>http://%YOURSERVER%/ct-mapapps-webapp-%VERSION%</mapapps.remote.base>`
 
-### Other methods to to define the mapapps.remote.base property.
+### Other methods to define the mapapps.remote.base property.
 1. Goal parameters
 `mvn install -Dmapapps.remote.base=http://%YOURSERVER%/ct-mapapps-webapp-%VERSION%`
 
