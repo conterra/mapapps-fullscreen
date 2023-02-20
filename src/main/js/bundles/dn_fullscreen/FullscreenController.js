@@ -15,19 +15,20 @@
  */
 function hideOmnisearch(root) {
     const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
-    omnisearchDivs.forEach(element => {
+    Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "None";
     })
 }
 
 function showOmnisearch(root) {
     const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
-    omnisearchDivs.forEach(element => {
+    Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "";
     })
 }
 
 export default class {
+
     requestFullscreen(event) {
         const tool = (event || {}).tool || {};
         tool.set("iconClass", "esri-icon-zoom-in-fixed");
