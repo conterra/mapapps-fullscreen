@@ -15,25 +15,26 @@
  */
 function hideOmnisearch(root) {
     const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
-    omnisearchDivs.forEach(element => {
+    Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "None";
     })
 }
 
 function showOmnisearch(root) {
     const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
-    omnisearchDivs.forEach(element => {
+    Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "";
     })
 }
 
 export default class {
+
     requestFullscreen(event) {
         const tool = (event || {}).tool || {};
         tool.set("iconClass", "esri-icon-zoom-in-fixed");
         const root = this._appCtx.getApplicationRootNode();
         const properties = this._properties;
-        const mapDiv = (properties.onlyMap) ? root.getElementsByClassName("mainMap")[0] : root;
+        const mapDiv = (properties.onlyMap) ? root.getElementsByClassName("ct-application-center")[0] : root;
         if(mapDiv) {
             if (mapDiv.requestFullscreen) {
                 mapDiv.requestFullscreen();
@@ -69,7 +70,7 @@ export default class {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
                 if (properties.hideOmnisearch) {
-                    showOmnisearch(root)
+                    showOmnisearch(root);
                 }
             } else if (document.webkitExitFullscreen) { /* Safari */
                 document.webkitExitFullscreen();
