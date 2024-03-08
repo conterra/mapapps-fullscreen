@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 function hideOmnisearch(root) {
-    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
+    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch");
     Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "None";
-    })
+    });
 }
 
 function showOmnisearch(root) {
-    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch")
+    const omnisearchDivs = root.getElementsByClassName("ct-omnisearch");
     Array.from(omnisearchDivs).forEach(element => {
         element.style.display = "";
-    })
+    });
 }
 
 export default class {
@@ -75,12 +75,12 @@ export default class {
             } else if (document.webkitExitFullscreen) { /* Safari */
                 document.webkitExitFullscreen();
                 if (properties.hideOmnisearch) {
-                    showOmnisearch(root)
+                    showOmnisearch(root);
                 }
             } else if (document.msExitFullscreen) { /* IE11 */
                 document.msExitFullscreen();
                 if (properties.hideOmnisearch) {
-                    showOmnisearch(root)
+                    showOmnisearch(root);
                 }
             }
         }
