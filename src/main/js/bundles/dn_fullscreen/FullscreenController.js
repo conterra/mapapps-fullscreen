@@ -34,8 +34,11 @@ export default class {
         tool.set("iconClass", "esri-icon-zoom-in-fixed");
         const root = this._appCtx.getApplicationRootNode();
         const properties = this._properties;
-        const mapDiv = (properties.onlyMap) ? root.getElementsByClassName("ct-application-center")[0] : root;
-        if(mapDiv) {
+        let mapDiv = (properties.onlyMap) ? root.getElementsByClassName("mainMap")[0] : root;
+        if (!mapDiv) {
+            mapDiv = (properties.onlyMap) ? root.getElementsByClassName("ct-application-center")[0] : root;
+        }
+        if (mapDiv) {
             if (mapDiv.requestFullscreen) {
                 mapDiv.requestFullscreen();
                 if (properties.hideOmnisearch) {
