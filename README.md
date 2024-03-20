@@ -1,3 +1,4 @@
+⚠️ This bundle is no longer in active development.
 # Fullscreen Bundle
 
 This bundle lets you switch to fullscreen view of the app or just the map.
